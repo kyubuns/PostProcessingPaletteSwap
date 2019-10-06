@@ -18,7 +18,7 @@ namespace PaletteSwapPostProcessing
         {
             var sheet = context.propertySheets.Get(Shader.Find("Hidden/Custom/PaletteSwap"));
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
-            if (settings.palette != null) sheet.properties.SetTexture("_Palette", settings.palette);
+            if (settings != null && settings.palette != null) sheet.properties.SetTexture("_Palette", settings.palette);
             context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
         }
     }
