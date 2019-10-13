@@ -2,13 +2,12 @@
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-namespace PaletteSwapPostProcessing
+namespace PostProcessingPaletteSwap
 {
     [Serializable]
     [PostProcess(typeof(PaletteSwapRenderer), PostProcessEvent.BeforeStack, "Custom/PaletteSwap")]
     public sealed class PaletteSwap : PostProcessEffectSettings
     {
-        [Tooltip("256px x 1px")]
         public TextureParameter palette = new TextureParameter();
     }
 

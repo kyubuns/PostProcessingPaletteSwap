@@ -9,7 +9,7 @@ public static class PackageExporter
     {
         var libraryDirectories = new[]
         {
-            "Assets/PaletteSwap"
+            "Assets/Plugins/PaletteSwap"
         };
 
         var outputFilePath = Path.Combine(Path.GetDirectoryName(Application.dataPath), "PaletteSwap.unitypackage");
