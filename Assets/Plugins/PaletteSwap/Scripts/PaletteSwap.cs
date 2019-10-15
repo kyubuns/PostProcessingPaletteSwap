@@ -19,7 +19,7 @@ namespace PostProcessingPaletteSwap
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             if (settings != null && settings.palette != null)
             {
-                sheet.properties.SetTexture("_Palette", settings.palette);
+                sheet.properties.SetTexture("_PaletteTex", settings.palette);
                 sheet.properties.SetFloat("_PaletteWidth", settings.palette.value.width);
             }
             context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
