@@ -1,13 +1,13 @@
-# PostProcessingPaletteSwap
+PostProcessingPaletteSwap
+=========================
 
-Color palette swap for Unity PostProcessingStack
+Color palette swap for Unity PostProcessing
 
-動画 ｰ> https://twitter.com/kyubuns/status/1180871785970987009
+## Installation
 
-## 使い方
-
-- [Releases](https://github.com/kyubuns/PostProcessingPaletteSwap/releases) から最新のUnityPackageをダウンロードしてインポート。
-- お好きなPostProcessVolumeに貼り付けてお楽しみください。
+- Install PostProcessing from package manager.
+- [Download the latest package from here](https://github.com/kyubuns/PostProcessingPaletteSwap/releases).
+- Import the unitypackage.
 
 ## 既にある素材をIndexColorに変換するスクリプト
 
@@ -64,3 +64,12 @@ namespace Editor
     }
 }
 ```
+
+## Requirements
+
+- Unity 2018.4 or higher.
+
+## License
+
+MIT License (see [LICENSE](LICENSE))
+
