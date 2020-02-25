@@ -17,8 +17,6 @@ namespace PostProcessingPaletteSwap.Editor
         {
             if (!assetPath.Contains(OriginalSpritePath)) return;
 
-            //var colorPalette = AssetDatabase.LoadAssetAtPath<Texture2D>(DefaultColorPalettePath);
-
             var colorPalette = new Texture2D (0, 0);
             colorPalette.LoadImage(File.ReadAllBytes(DefaultColorPalettePath));
 
