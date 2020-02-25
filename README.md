@@ -20,7 +20,7 @@ Color palette swap for Unity PostProcessing
 
 - Create palette image.
   - Width: 1~256px (recommend 4^x)
-  - Height: unspecified (recommend 4)
+  - Height: unspecified
   - FilterMode: Point (no filter)
   - [Examples](https://github.com/kyubuns/PostProcessingPaletteSwap/tree/master/Assets/Plugins/PaletteSwap/Sample/Palettes)
 - Import sprite to OriginalSprite directory.
