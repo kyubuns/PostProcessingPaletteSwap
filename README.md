@@ -1,6 +1,8 @@
 PostProcessingPaletteSwap
 =========================
 
+![output](https://user-images.githubusercontent.com/961165/75260567-27a32f80-582d-11ea-92e5-1d7b7c249b8e.gif)
+
 Color palette swap for Unity PostProcessing
 
 ## Installation
