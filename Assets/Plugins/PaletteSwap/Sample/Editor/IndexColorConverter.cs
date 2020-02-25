@@ -15,16 +15,20 @@ namespace PostProcessingPaletteSwap.Editor
 
         private void OnPostprocessTexture(Texture2D texture)
         {
-            Debug.Log(assetPath);
             if (!assetPath.Contains(OriginalSpritePath)) return;
 
-            var colorPalette = AssetDatabase.LoadAssetAtPath<Texture2D>(DefaultColorPalettePath);
+            //var colorPalette = AssetDatabase.LoadAssetAtPath<Texture2D>(DefaultColorPalettePath);
+
+            var colorPalette = new Texture2D (0, 0);
+            colorPalette.LoadImage(File.ReadAllBytes(DefaultColorPalettePath));
+
             var colorToIndexColor = new Dictionary<Color32, Color32>();
-            var colorPalettePixels = colorPalette.GetPixels32();
+            var colorPalettePixels = colorPalette.GetPixels32().Take(colorPalette.width).ToArray();
             foreach (var (palette, i) in colorPalettePixels.Select((x, i) => (x, i)))
             {
                 var r = (byte) (i * 256 / colorPalettePixels.Length);
                 colorToIndexColor[palette] = new Color32(r, r, r, 255);
+                // Debug.Log($"{palette} = {colorToIndexColor[palette].r}");
             }
 
             var texturePixels = texture.GetPixels32();
@@ -38,15 +42,19 @@ namespace PostProcessingPaletteSwap.Editor
 
                 if (!colorToIndexColor.ContainsKey(texturePixels[i]))
                 {
-                    throw new Exception($"{Path.GetFileName(assetPath)} has unknown color {texturePixels[i]}");
+                    throw new Exception($"{Path.GetFileName(assetPath)} has unknown color {texturePixels[i]} in ({i / texture.width}, {i % texture.width})");
                 }
 
-                texturePixels[i] = colorToIndexColor[texturePixels[i]];
+                var c = colorToIndexColor[texturePixels[i]];
+                c.a = texturePixels[i].a;
+                texturePixels[i] = c;
             }
             var newTexture2D = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
             newTexture2D.SetPixels32(texturePixels);
             var bytes = newTexture2D.EncodeToPNG();
-            File.WriteAllBytes(assetPath.Replace(OriginalSpritePath, ConvertedSpritePath), bytes);
+            var savePath = assetPath.Replace(OriginalSpritePath, ConvertedSpritePath);
+            File.WriteAllBytes(savePath, bytes);
+            AssetDatabase.ImportAsset(savePath);
 
             Debug.Log($"IndexColorConverter: {assetPath}");
         }

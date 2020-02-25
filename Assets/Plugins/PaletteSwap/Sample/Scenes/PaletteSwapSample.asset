@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   palette:
     overrideState: 1
-    value: {fileID: 2800000, guid: 3c2385836f6e842ad90081e851c2ae50, type: 3}
+    value: {fileID: 2800000, guid: 4aa654ac0bf19428197170d6064a86b8, type: 3}
     defaultState: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Main Camera Profile
+  m_Name: PaletteSwapSample
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -9142671213570420934}
